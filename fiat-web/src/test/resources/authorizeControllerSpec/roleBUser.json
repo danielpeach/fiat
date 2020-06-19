@@ -1,0 +1,23 @@
+{
+  "name" : "roleBUser",
+  "accounts" : [ {
+    "name" : "restrictedAcct",
+    "authorizations" : [ "READ" ]
+  }, {
+    "name" : "unrestrictedAcct",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "applications" : [ {
+    "name" : "unrestrictedApp",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "serviceAccounts" : [ ],
+  "roles" : [ {
+    "name" : "roleb",
+    "source" : "EXTERNAL"
+  } ],
+  "buildServices" : [ ],
+  "admin" : false,
+  "legacyFallback" : false,
+  "allowAccessToUnknownApplications" : false
+}

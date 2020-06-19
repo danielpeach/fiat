@@ -100,7 +100,7 @@ class AuthorizeControllerSpec extends Specification {
     permissionsRepository.put(roleAroleBUser)
 
     when:
-    def expected = objectMapper.writeValueAsString(unrestrictedUser.view)
+    def expected = getFileText("unrestrictedUser.json")
 
     then:
     def result = mockMvc.perform(get("/authorize/anonymous"))
@@ -109,7 +109,7 @@ class AuthorizeControllerSpec extends Specification {
     result.andExpect(status().isOk()).andExpect(content().json(expected))
 
     when:
-    expected = objectMapper.writeValueAsString(roleAUser.merge(unrestrictedUser).view)
+    expected = getFileText("roleAUser.json")
 
     then:
     mockMvc.perform(get("/authorize/roleAUser"))
@@ -117,7 +117,7 @@ class AuthorizeControllerSpec extends Specification {
            .andExpect(content().json(expected))
 
     when:
-    expected = objectMapper.writeValueAsString(roleBUser.merge(unrestrictedUser).view)
+    expected = getFileText("roleBUser.json")
 
     then:
     mockMvc.perform(get("/authorize/roleBUser"))
@@ -125,7 +125,7 @@ class AuthorizeControllerSpec extends Specification {
            .andExpect(content().json(expected))
 
     when:
-    expected = objectMapper.writeValueAsString(roleAroleBUser.merge(unrestrictedUser).view)
+    expected = getFileText("roleARoleBUser.json")
 
     then:
     mockMvc.perform(get("/authorize/roleAroleBUser"))
@@ -141,12 +141,7 @@ class AuthorizeControllerSpec extends Specification {
 
     when:
     fiatServerConfigurationProperties.setGetAllEnabled(true)
-    // This only works because we made a bunch of .merge(unrestrictedUser) calls that
-    // added the unrestricted resources to the users.
-    expected = objectMapper.writeValueAsString([unrestrictedUser.view,
-                                                roleAUser.view,
-                                                roleBUser.view,
-                                                roleAroleBUser.view])
+    expected = getFileText("allUsers.json")
 
     then:
     mockMvc.perform(get("/authorize/"))
@@ -395,5 +390,9 @@ class AuthorizeControllerSpec extends Specification {
     userId      | expectedResponse
     "roleAUser" | HttpServletResponse.SC_OK
     "roleBUser" | HttpServletResponse.SC_NOT_FOUND
+  }
+
+  String getFileText(String name) {
+    return new File(getClass().getResource("/authorizeControllerSpec/$name").toURI()).getText("UTF-8")
   }
 }

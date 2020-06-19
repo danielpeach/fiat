@@ -1,0 +1,28 @@
+{
+  "name" : "roleAroleBUser",
+  "accounts" : [ {
+    "name" : "restrictedAcct",
+    "authorizations" : [ "READ" ]
+  }, {
+    "name" : "unrestrictedAcct",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "applications" : [ {
+    "name" : "unrestrictedApp",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  }, {
+    "name" : "restrictedApp",
+    "authorizations" : [ "READ" ]
+  } ],
+  "serviceAccounts" : [ ],
+  "roles" : [ {
+    "name" : "roleb",
+    "source" : "EXTERNAL"
+  }, {
+    "name" : "rolea"
+  } ],
+  "buildServices" : [ ],
+  "admin" : false,
+  "legacyFallback" : false,
+  "allowAccessToUnknownApplications" : false
+}

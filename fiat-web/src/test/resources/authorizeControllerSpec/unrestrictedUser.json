@@ -1,0 +1,17 @@
+{
+  "name" : "__unrestricted_user__",
+  "accounts" : [ {
+    "name" : "unrestrictedAcct",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "applications" : [ {
+    "name" : "unrestrictedApp",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "serviceAccounts" : [ ],
+  "roles" : [ ],
+  "buildServices" : [ ],
+  "admin" : false,
+  "legacyFallback" : false,
+  "allowAccessToUnknownApplications" : false
+}

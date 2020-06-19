@@ -1,0 +1,22 @@
+{
+  "name" : "roleAUser",
+  "accounts" : [ {
+    "name" : "unrestrictedAcct",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "applications" : [ {
+    "name" : "unrestrictedApp",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  }, {
+    "name" : "restrictedApp",
+    "authorizations" : [ "READ" ]
+  } ],
+  "serviceAccounts" : [ ],
+  "roles" : [ {
+    "name" : "rolea"
+  } ],
+  "buildServices" : [ ],
+  "admin" : false,
+  "legacyFallback" : false,
+  "allowAccessToUnknownApplications" : false
+}

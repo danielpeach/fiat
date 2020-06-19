@@ -1,0 +1,87 @@
+[ {
+  "name" : "__unrestricted_user__",
+  "accounts" : [ {
+    "name" : "unrestrictedAcct",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "applications" : [ {
+    "name" : "unrestrictedApp",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "serviceAccounts" : [ ],
+  "roles" : [ ],
+  "buildServices" : [ ],
+  "admin" : false,
+  "legacyFallback" : false,
+  "allowAccessToUnknownApplications" : false
+}, {
+  "name" : "roleAUser",
+  "accounts" : [ {
+    "name" : "unrestrictedAcct",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "applications" : [ {
+    "name" : "unrestrictedApp",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  }, {
+    "name" : "restrictedApp",
+    "authorizations" : [ "READ" ]
+  } ],
+  "serviceAccounts" : [ ],
+  "roles" : [ {
+    "name" : "rolea"
+  } ],
+  "buildServices" : [ ],
+  "admin" : false,
+  "legacyFallback" : false,
+  "allowAccessToUnknownApplications" : false
+}, {
+  "name" : "roleBUser",
+  "accounts" : [ {
+    "name" : "restrictedAcct",
+    "authorizations" : [ "READ" ]
+  }, {
+    "name" : "unrestrictedAcct",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "applications" : [ {
+    "name" : "unrestrictedApp",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "serviceAccounts" : [ ],
+  "roles" : [ {
+    "name" : "roleb",
+    "source" : "EXTERNAL"
+  } ],
+  "buildServices" : [ ],
+  "admin" : false,
+  "legacyFallback" : false,
+  "allowAccessToUnknownApplications" : false
+}, {
+  "name" : "roleAroleBUser",
+  "accounts" : [ {
+    "name" : "restrictedAcct",
+    "authorizations" : [ "READ" ]
+  }, {
+    "name" : "unrestrictedAcct",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  } ],
+  "applications" : [ {
+    "name" : "unrestrictedApp",
+    "authorizations" : [ "READ", "WRITE", "EXECUTE", "CREATE" ]
+  }, {
+    "name" : "restrictedApp",
+    "authorizations" : [ "READ" ]
+  } ],
+  "serviceAccounts" : [ ],
+  "roles" : [ {
+    "name" : "roleb",
+    "source" : "EXTERNAL"
+  }, {
+    "name" : "rolea"
+  } ],
+  "buildServices" : [ ],
+  "admin" : false,
+  "legacyFallback" : false,
+  "allowAccessToUnknownApplications" : false
+} ]
